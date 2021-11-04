@@ -15,4 +15,12 @@ describe('Test for PaymentSytem class', () => {
        expect(paymentFn.mock.calls.length).toBe(1);
        expect(paymentFn.mock.calls[0][0]).toBe(500);
     });
+
+    test('Paying with different parameters', () => {
+        expect(myPaymentSystem.pay(2700, paymentFn)).toBe(2700);
+        expect(myPaymentSystem.pay(89, paymentFn)).toBe(89);
+        expect(myPaymentSystem.pay(1111, paymentFn)).toBe(1111);
+        expect(paymentFn.mock.calls.length).toBe(4);
+        expect(paymentFn.mock.calls[2][0]).toBe(89);
+    });
 });
