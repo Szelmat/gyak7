@@ -67,9 +67,23 @@ describe('Tests for the WeaponEnchanter class', () => {
     
     test('it should return numbers for enchantments', () => {
         expect(myWeaponEnchanter.enchant('fire')).toBe(1);
+        expect(myWeaponEnchanter.enchant('water')).toBe(2);
+        expect(myWeaponEnchanter.enchant('earth')).toBe(3);
+        expect(myWeaponEnchanter.enchant('air')).toBe(4);
     });
 
     afterAll(() => {
         jest.restoreAllMocks();
     });
+});
+
+describe('restoreAllMocks() worked', () => {
+    let myWeaponEnchanter;
+    beforeAll(() => {
+        myWeaponEnchanter = new WeaponEnchanter();
+    })
+
+    test('water enchantment should return a string', () => {
+        expect(myWeaponEnchanter.enchant('water')).toBe('Enchanter with water');
+    })
 });
