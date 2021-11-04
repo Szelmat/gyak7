@@ -1,14 +1,13 @@
 export class WeaponEnchanter {
     enchant(enchantment) {
-        if(enchantment == 'water')
+        if(enchantment === 'water')
             this.enchantWithWater();
-        else if(enchantment == 'fire')
+        else if(enchantment === 'fire')
             this.enchantWithFire();
-        else if(enchantment == 'air')
+        else if(enchantment === 'air')
             this.enchantWithAir();
         else
-            this.enchantWithEarth();
-            
+            this.enchantWithEarth();     
     }
 
     enchantWithWater() {

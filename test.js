@@ -1,4 +1,5 @@
 import { PaymentSystem } from "./paymentSystem";
+import { WeaponEnchanter } from "./weaponEnchanter";
 
 describe('Test for PaymentSytem class', () => {
     let myPaymentSystem;
@@ -50,5 +51,17 @@ describe('test for subscription', () => {
         for(let i = 0; i < 25; i++) {
             expect(paymentFn.mock.calls[i][0]).toBe(100);
         }
+    });
+});
+
+
+describe('Tests for the WeaponEnchanter class', () => {
+    let myWeaponEnchanter;
+    beforeAll(() => {
+        myWeaponEnchanter = new WeaponEnchanter();
+        jest.spyOn(WeaponEnchanter.prototype, 'enchantWithFire').mockImplemtation(() => 1);
+        jest.spyOn(WeaponEnchanter.prototype, 'enchantWithWater').mockImplemtation(() => 2);
+        jest.spyOn(WeaponEnchanter.prototype, 'enchantWithEarth').mockImplemtation(() => 3);
+        jest.spyOn(WeaponEnchanter.prototype, 'enchantWithAir').mockImplemtation(() => 4);
     });
 });
