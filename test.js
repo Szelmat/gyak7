@@ -29,7 +29,7 @@ describe('Test for PaymentSytem class', () => {
 describe('test for subscription', () => {
     let myPaymentSystem;
     let paymentFn;
-    beforeAll(() => {
+    beforeEach(() => {
         myPaymentSystem = new PaymentSystem();
         paymentFn = jest.fn((amount) => amount);
     });
@@ -40,6 +40,15 @@ describe('test for subscription', () => {
         expect(paymentFn).toHaveBeenCalledWith(250);
         for(let i = 0; i < 3; i++) {
             expect(paymentFn.mock.calls[i][0]).toBe(250);
+        }
+    });
+
+    test('subscribe for a longer period', () => {
+        expect(myPaymentSystem.subscribe(100, paymentFn, 25)).toBe(2500);
+        expect(paymentFn.mock.calls.length).toBe(25);
+        expect(paymentFn).toHaveBeenCalledWith(100);
+        for(let i = 0; i < 25; i++) {
+            expect(paymentFn.mock.calls[i][0]).toBe(100);
         }
     });
 })
