@@ -24,3 +24,22 @@ describe('Test for PaymentSytem class', () => {
         expect(paymentFn.mock.calls[2][0]).toBe(89);
     });
 });
+
+
+describe('test for subscription', () => {
+    let myPaymentSystem;
+    let paymentFn;
+    beforeAll(() => {
+        myPaymentSystem = new PaymentSystem();
+        paymentFn = jest.fn((amount) => amount);
+    });
+
+    test('testing a subscribe() function', () => {
+        expect(myPaymentSystem.subscribe(250, paymentFn, 3)).toBe(750);
+        expect(paymentFn.mock.calls.length).toBe(3);
+        expect(paymentFn).toHaveBeenCalledWith(250);
+        for(let i = 0; i < 3; i++) {
+            expect(paymentFn.mock.calls[i][0]).toBe(250);
+        }
+    });
+})
