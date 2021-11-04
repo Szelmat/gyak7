@@ -64,4 +64,12 @@ describe('Tests for the WeaponEnchanter class', () => {
         jest.spyOn(WeaponEnchanter.prototype, 'enchantWithEarth').mockImplementation(() => 3);
         jest.spyOn(WeaponEnchanter.prototype, 'enchantWithAir').mockImplementation(() => 4);
     });
+    
+    test('it should return numbers for enchantments', () => {
+        expect(myWeaponEnchanter.enchant('fire')).toBe(1);
+    });
+
+    afterAll(() => {
+        jest.restoreAllMocks();
+    });
 });
