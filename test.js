@@ -59,9 +59,9 @@ describe('Tests for the WeaponEnchanter class', () => {
     let myWeaponEnchanter;
     beforeAll(() => {
         myWeaponEnchanter = new WeaponEnchanter();
-        jest.spyOn(WeaponEnchanter.prototype, 'enchantWithFire').mockImplemtation(() => 1);
-        jest.spyOn(WeaponEnchanter.prototype, 'enchantWithWater').mockImplemtation(() => 2);
-        jest.spyOn(WeaponEnchanter.prototype, 'enchantWithEarth').mockImplemtation(() => 3);
-        jest.spyOn(WeaponEnchanter.prototype, 'enchantWithAir').mockImplemtation(() => 4);
+        jest.spyOn(WeaponEnchanter.prototype, 'enchantWithFire').mockImplementation(() => 1);
+        jest.spyOn(WeaponEnchanter.prototype, 'enchantWithWater').mockImplementation(() => 2);
+        jest.spyOn(WeaponEnchanter.prototype, 'enchantWithEarth').mockImplementation(() => 3);
+        jest.spyOn(WeaponEnchanter.prototype, 'enchantWithAir').mockImplementation(() => 4);
     });
 });
