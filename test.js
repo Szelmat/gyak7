@@ -51,4 +51,4 @@ describe('test for subscription', () => {
             expect(paymentFn.mock.calls[i][0]).toBe(100);
         }
     });
-})
+});
